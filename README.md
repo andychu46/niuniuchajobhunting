@@ -1,4 +1,4 @@
-# 🏷️ 牛牛查求职助手
+# 🏷️ 牛牛查求职助手 ![favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/favicon-32x32.png)
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.1-blue.svg" alt="Version">
@@ -7,9 +7,11 @@
   <img src="https://img.shields.io/badge/supported-多招聘平台-brightgreen.svg" alt="Support">
 </p>
 
+
 <p align="center">
   <b>智能招聘信息增强工具 - 让求职更安全、更高效</b>
 </p>
+![favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/apple-touch-icon.png)
 
 ## 📝 项目简介
 
@@ -188,6 +190,12 @@ const QUERY_SERVICES = [
 - **本地处理** - 所有数据在本地处理，不上传个人信息
 - **开源透明** - 代码完全开源，保证安全可靠
 - **无广告** - 纯净工具，专注功能实现
+
+## 截屏图
+![51job职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/51job1.png)
+![boss职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/boss1.png)
+![boss职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/boss2.png)
+![牛企直聘职位详情](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/niuqi1.png)
 
 ## 🤝 贡献指南
 
