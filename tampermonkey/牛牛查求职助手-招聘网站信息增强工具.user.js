@@ -22,7 +22,7 @@
 
     // ==================== 常量定义 ====================
     const SCRIPT_NAME = '牛牛查求职助手';
-    const DEBUG = true;
+    const DEBUG = false;
     
     // 日期颜色配置
     const DATE_COLORS = {
@@ -180,7 +180,7 @@
         enableApiInterception: true, // 是否启用API拦截
         maxInitialRetries: 3,       // 最大初始重试次数
         retryInterval: 1000,        // 重试间隔(ms)
-        showTipButton: true         // 是否显示功能提示按钮
+        showTipButton: false         // 是否显示功能提示按钮
     };
     
     // ==================== 全局变量 ====================
