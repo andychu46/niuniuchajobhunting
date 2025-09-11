@@ -1,4 +1,4 @@
-# 🏷️ 牛牛查求职助手
+# 🏷️ 牛牛查求职助手 ![牛牛查favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/favicon-32x32.png?raw=true)
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.1-blue.svg" alt="Version">
@@ -7,9 +7,12 @@
   <img src="https://img.shields.io/badge/supported-多招聘平台-brightgreen.svg" alt="Support">
 </p>
 
+
 <p align="center">
   <b>智能招聘信息增强工具 - 让求职更安全、更高效</b>
 </p>
+
+![牛牛查favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/apple-touch-icon.png?raw=true)
 
 ## 📝 项目简介
 
@@ -61,10 +64,12 @@
 ### 安装步骤
 
 1. **安装Tampermonkey**
-    - [如何安装Tampermonkey]https://www.userscript.zone/howto?env=chrome
-   - [Chrome浏览器](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-   - [Firefox浏览器](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-   - [Edge浏览器](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+    [Tampermonkey](https://www.tampermonkey.net/)
+    需要魔法
+    - [如何安装Tampermonkey](https://www.userscript.zone/howto?env=chrome)
+   - [Chrome浏览器商店](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+   - [Firefox浏览器商店](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
+   - [Edge浏览器商店](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
 2. **安装脚本**
    ```bash
@@ -188,6 +193,18 @@ const QUERY_SERVICES = [
 - **本地处理** - 所有数据在本地处理，不上传个人信息
 - **开源透明** - 代码完全开源，保证安全可靠
 - **无广告** - 纯净工具，专注功能实现
+
+## 📸 功能截图
+51job职位列表截图
+![51job职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/51job1.png?raw=true)
+
+boss职位列表截图
+![boss职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/boss1.png?raw=true)
+
+![boss职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/boss2.png?raw=true)
+
+牛企直聘职位详情截图
+![牛企直聘职位详情](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/niuqi1.png?raw=true)
 
 ## 🤝 贡献指南
 
