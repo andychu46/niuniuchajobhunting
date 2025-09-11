@@ -14,6 +14,9 @@
 // @grant        GM_addStyle
 // @run-at       document-idle
 // @license      MIT
+// @updateURL https://openuserjs.org/meta/awpb46/牛牛查求职助手-招聘网站信息增强工具.meta.js
+// @downloadURL https://openuserjs.org/install/awpb46/牛牛查求职助手-招聘网站信息增强工具.user.js
+// @copyright 2025, awpb46 (https://openuserjs.org/users/awpb46)
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // ==/UserScript==
 
@@ -22,7 +25,7 @@
 
     // ==================== 常量定义 ====================
     const SCRIPT_NAME = '牛牛查求职助手';
-    const DEBUG = false;
+    const DEBUG = true;
     
     // 日期颜色配置
     const DATE_COLORS = {
@@ -180,7 +183,7 @@
         enableApiInterception: true, // 是否启用API拦截
         maxInitialRetries: 3,       // 最大初始重试次数
         retryInterval: 1000,        // 重试间隔(ms)
-        showTipButton: false         // 是否显示功能提示按钮
+        showTipButton: true         // 是否显示功能提示按钮
     };
     
     // ==================== 全局变量 ====================

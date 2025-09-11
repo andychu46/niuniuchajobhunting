@@ -61,6 +61,7 @@
 ### 安装步骤
 
 1. **安装Tampermonkey**
+    - [如何安装Tampermonkey]https://www.userscript.zone/howto?env=chrome
    - [Chrome浏览器](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
    - [Firefox浏览器](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
    - [Edge浏览器](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
