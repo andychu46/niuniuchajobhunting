@@ -63,29 +63,70 @@
 
 ### 安装步骤
 
-1. **安装Tampermonkey**
-    [Tampermonkey](https://www.tampermonkey.net/)
-    需要魔法
-    - [如何安装Tampermonkey](https://www.userscript.zone/howto?env=chrome)
+1. ** 安装篡改猴 (Tampermonkey) **
+篡改猴 (Tampermonkey) 是拥有 超过 1000 万用户 的最流行的浏览器扩展之一。 它适用于 Chrome、Microsoft Edge、Safari、Opera Next 和 Firefox。
+有些人也会把篡改猴(Tampermonkey)称作油猴(Greasemonkey)，尽管后者只是一款仅适用于 Firefox 浏览器的浏览器扩展程序。
+以下站点可能需要施魔法
+
+   - [Tampermonkey](https://www.tampermonkey.net/)
+   - [如何安装Tampermonkey](https://www.userscript.zone/howto?env=chrome)
    - [Chrome浏览器商店](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
    - [Firefox浏览器商店](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
    - [Edge浏览器商店](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
+<figure>
+  <img width="300" height="177" src="https://greasyfork.org/vite/assets/tampermonkey-manage-BuqpPkri.webp" alt="Chrome 上的 Tampermonkey" />
+  <figcaption>Chrome 上的 Tampermonkey</figcaption>
+</figure>
+
+要使用用户脚本，您首先需要安装一个用户脚本管理器。您可以根据您自己当前使用的浏览器来选择一个用户脚本管理器。
+
+
+#### 桌面端
+
+- **Chrome**：[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) 或 [Violentmonkey](https://chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag)
+- **Firefox**：[Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/)、[Tampermonkey](https://addons.mozilla.org/firefox/addon/tampermonkey/) 或 [Violentmonkey](https://addons.mozilla.org/firefox/addon/violentmonkey/)
+- **Safari**：[Tampermonkey](https://www.tampermonkey.net/?browser=safari) 或 [Userscripts](https://apps.apple.com/app/userscripts/id1463298887)
+- **Microsoft Edge**：[Tampermonkey](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd) 或 [Violentmonkey](https://microsoftedge.microsoft.com/addons/detail/violentmonkey/eeagobfjdenkkddmbclomhiblgggliao)
+- **Opera**：[Tampermonkey](https://addons.opera.com/extensions/details/tampermonkey-beta/) 或 [Violentmonkey](https://violentmonkey.github.io/get-it/)
+- **Maxthon**：[Violentmonkey](http://extension.maxthon.com/detail/index.php?view_id=1680)
+- **AdGuard**：[AdGuard](https://adguard.com/)（不需要其他软件）
+
+#### 移动端（Android）
+
+- **Firefox**: [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/), [Tampermonkey](https://addons.mozilla.org/firefox/addon/tampermonkey/), or [Violentmonkey](https://addons.mozilla.org/firefox/addon/violentmonkey/)
+- **Microsoft Edge**: [Tampermonkey](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+- **傲游浏览器**: [Violentmonkey](http://extension.maxthon.com/detail/index.php?view_id=1680)
+- **Dolphin**: [Tampermonkey](https://play.google.com/store/apps/details?id=net.tampermonkey.dolphin)
+- **UC 浏览器**: [Tampermonkey](https://www.tampermonkey.net/?browser=ucweb&ext=dhdg)
+- [XBrowser](https://www.xbext.com)
+- [书签地球](https://www.bookmarkearth.cn/download/app)
+- [M浏览器](http://mbrowser.nr19.cn/)
+- **狐猴浏览器**：[Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+
+#### 移动端（iOS）
+
+- **Safari**：[Tampermonkey](https://www.tampermonkey.net/?browser=safari) 或 [Userscripts](https://apps.apple.com/app/userscripts/id1463298887)
+- [Gear](https://gear4.app/)：（不需要其他软件）
+
+
 2. **安装脚本**
-   ```bash
+   
    # 方式一：直接安装（推荐）
    点击：[安装脚本](https://github.com/andychu46/niuniuchajobhunting/raw/main/tampermonkey/%E7%89%9B%E7%89%9B%E6%9F%A5%E6%B1%82%E8%81%8C%E5%8A%A9%E6%89%8B-%E6%8B%9B%E8%81%98%E7%BD%91%E7%AB%99%E4%BF%A1%E6%81%AF%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7.user.js)
    
    # 方式二：手动安装
-   1. 复制 tampermonkey/牛牛查求职助手-招聘网站信息增强工具.user.js 文件内容
+   1. 打开项目地址，复制文件内容 tampermonkey/牛牛查求职助手-招聘网站信息增强工具.user.js 
    2. 在Tampermonkey中创建新脚本
    3. 粘贴代码并保存
 
    # 方式三：脚本站安装
-   1. https://www.tampermonkey.net/ ,https://greasyfork.org/ ,https://openuserjs.org/
-   2. 搜索"牛牛查求职助手"
-   3. 粘贴代码并保存 
-   ```
+   1. [Tampermonkey官网](https://www.tampermonkey.net/)
+   2. [Greasy Fork脚本站](https://greasyfork.org/)
+   3. [OpenUserJS脚本站](https://openuserjs.org/)
+   4. 搜索"牛牛查求职助手"
+   5. 粘贴代码并保存 
+ 
 
 3. **开始使用**
    - 访问支持的招聘网站
