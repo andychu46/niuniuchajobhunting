@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         牛牛查求职助手-招聘网站信息增强工具
 // @namespace    http://c1gstudio.com/
-// @version      1.1
+// @version      1.2
 // @homepage     https://blog.c1gstudio.com/
 // @supportURL   https://github.com/andychu46/niuniuchajobhunting
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVQ4jW2TS0hUYRTHf+d6aWZ8TDa+Hzk+kkQqCUJbFGXYIjCzNgVCSBG0aeEi27Vo12NR5KJFIEFaG4PouYnAkh5WFBET5WNoJnMcxvHF6Dhz79fi3hlH8GzO4Tvf/3yH////iVKmAgAB7BJhfagN+latKRRKqYxLG4HJAFpnFgZ0QVCY6amxeJxsh5P+d494HfmChrC/cDdn954gFl/GtcmBiAZib5A5fWYuQm//VfyhILfGBvhVM4Wv5i83xweZDAXp7b9OeH4WUIgNFaVMpZSJSBbfJnwYpsmdlw9BwJ2bAwgLi4uAcP7IKTSEptoGCyyCDgpE+D3l50dgjMcfXnGt+yJlnkIC4X+AsLWolKlImEv3btDR0kaOK5v6cq/FgcWJQhBM02TPth14i8u5MthHT+cZ7r4fYnj0K07NQW1lFaZpZNAsiKkMhVKICPOxJfqeDlBdXIGu69z//oTYPqE+z8u8sYQvOM5lZzfHm9tAQNJMICgFblcuFVuK6TrYTn2pF39RiMb8OnpKurhQeBJvRRnPIyOISFpdTeyFRDREBE3L4k94msaqOkDxc8XP5Mo0geQM4eTcmivE8o6uULYxTEQET56bB8PPmAgFiEfjeJryeBP7iAK0qHCs5ECGEyVlJCsWYkusJhO07mzmdGsHyaHbVIwVMbLyGZe4OFfUTmxxOe1OlVbBjoSRJLIQZTTo4/D2Fjp3tXK05RCpLV98estsPLrO2OsGeHLd5OdvZnUlSENlNWUFxSmxACHb4cRZUGJ/BwFJy2iuuVpMq5l6RTSbHytbilkbiWg2B5LxJRBExKZIUlPWshISiQSGYaDrOv8BNCz+u1A+hJcAAAAASUVORK5CYII=
@@ -25,7 +25,7 @@
 
     // ==================== 常量定义 ====================
     const SCRIPT_NAME = '牛牛查求职助手';
-    const DEBUG = true;
+    const DEBUG = false;
     
     // 日期颜色配置
     const DATE_COLORS = {
@@ -183,7 +183,7 @@
         enableApiInterception: true, // 是否启用API拦截
         maxInitialRetries: 3,       // 最大初始重试次数
         retryInterval: 1000,        // 重试间隔(ms)
-        showTipButton: true         // 是否显示功能提示按钮
+        showTipButton: false         // 是否显示功能提示按钮
     };
     
     // ==================== 全局变量 ====================
