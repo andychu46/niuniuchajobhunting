@@ -3,7 +3,7 @@
 // @namespace    http://c1gstudio.com/
 // @version      1.1
 // @homepage     https://blog.c1gstudio.com/
-// @supportURL   https://github.com/andychu46/niuniujobhunting
+// @supportURL   https://github.com/andychu46/niuniuchajobhunting
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVQ4jW2TS0hUYRTHf+d6aWZ8TDa+Hzk+kkQqCUJbFGXYIjCzNgVCSBG0aeEi27Vo12NR5KJFIEFaG4PouYnAkh5WFBET5WNoJnMcxvHF6Dhz79fi3hlH8GzO4Tvf/3yH////iVKmAgAB7BJhfagN+latKRRKqYxLG4HJAFpnFgZ0QVCY6amxeJxsh5P+d494HfmChrC/cDdn954gFl/GtcmBiAZib5A5fWYuQm//VfyhILfGBvhVM4Wv5i83xweZDAXp7b9OeH4WUIgNFaVMpZSJSBbfJnwYpsmdlw9BwJ2bAwgLi4uAcP7IKTSEptoGCyyCDgpE+D3l50dgjMcfXnGt+yJlnkIC4X+AsLWolKlImEv3btDR0kaOK5v6cq/FgcWJQhBM02TPth14i8u5MthHT+cZ7r4fYnj0K07NQW1lFaZpZNAsiKkMhVKICPOxJfqeDlBdXIGu69z//oTYPqE+z8u8sYQvOM5lZzfHm9tAQNJMICgFblcuFVuK6TrYTn2pF39RiMb8OnpKurhQeBJvRRnPIyOISFpdTeyFRDREBE3L4k94msaqOkDxc8XP5Mo0geQM4eTcmivE8o6uULYxTEQET56bB8PPmAgFiEfjeJryeBP7iAK0qHCs5ECGEyVlJCsWYkusJhO07mzmdGsHyaHbVIwVMbLyGZe4OFfUTmxxOe1OlVbBjoSRJLIQZTTo4/D2Fjp3tXK05RCpLV98estsPLrO2OsGeHLd5OdvZnUlSENlNWUFxSmxACHb4cRZUGJ/BwFJy2iuuVpMq5l6RTSbHytbilkbiWg2B5LxJRBExKZIUlPWshISiQSGYaDrOv8BNCz+u1A+hJcAAAAASUVORK5CYII=
 // @description  在招聘网站职位列表页每个职位添加公司工商信息(天眼查、爱企查、企查查)查询功能，增加额外的职位首发/更新时间，职位详情。支持前程无忧、BOSS直聘、牛企直聘网站。
 // @author       c1gstudio
@@ -13,6 +13,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @run-at       document-idle
+// @license      MIT
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
 // ==/UserScript==
 
@@ -228,7 +229,7 @@
         .niuniu_company-tag-label{font-size:12px;color:#666;font-weight:500;margin-right:8px;white-space:nowrap}
         .niuniu_date-tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:12px;color:white;font-size:12px;font-weight:500;white-space:nowrap}
         .niuniu_info-tag{display:inline-flex;align-items:center;color:#6c757d;font-size:12px;white-space:nowrap}
-        .niuniu_link{color:#007bff;text-decoration:none;font-size:12px;cursor:pointer;transition:color 0.2s ease}
+        .niuniu_link{display:inline-flex;align-items:center;color:#007bff;text-decoration:none;font-size:12px;cursor:pointer;transition:color 0.2s ease}
         .niuniu_link:hover{color:#0056b3;text-decoration:none}
         @media (max-width:768px){.niuniu_job-info-layer{gap:6px;padding:10px 12px}.niuniu_job-info-row{gap:8px}.niuniu_company-tags-row{gap:6px;padding:3px 0}.niuniu_company-tags-container{gap:6px}.niuniu_company-tag-label{font-size:11px;margin-right:6px}.niuniu_company-query-btn{font-size:11px;padding:4px 8px;min-width:50px}.niuniu_company-tag{font-size:10px;padding:2px 6px}.niuniu_info-tag{font-size:11px}.niuniu_date-tag{font-size:11px;padding:3px 6px}}
         
