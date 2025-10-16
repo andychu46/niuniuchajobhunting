@@ -1,7 +1,7 @@
 # 🏷️ 牛牛查求职助手 ![牛牛查favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/favicon-32x32.png?raw=true)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.3-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Tampermonkey-orange.svg" alt="Platform">
   <img src="https://img.shields.io/badge/supported-多招聘平台-brightgreen.svg" alt="Support">
