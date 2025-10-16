@@ -1,15 +1,16 @@
 // ==UserScript==
 // @name         牛牛查求职助手-招聘网站信息增强工具
 // @namespace    http://c1gstudio.com/
-// @version      1.2
+// @version      1.3
 // @homepage     https://blog.c1gstudio.com/
 // @supportURL   https://github.com/andychu46/niuniuchajobhunting
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVQ4jW2TS0hUYRTHf+d6aWZ8TDa+Hzk+kkQqCUJbFGXYIjCzNgVCSBG0aeEi27Vo12NR5KJFIEFaG4PouYnAkh5WFBET5WNoJnMcxvHF6Dhz79fi3hlH8GzO4Tvf/3yH////iVKmAgAB7BJhfagN+latKRRKqYxLG4HJAFpnFgZ0QVCY6amxeJxsh5P+d494HfmChrC/cDdn954gFl/GtcmBiAZib5A5fWYuQm//VfyhILfGBvhVM4Wv5i83xweZDAXp7b9OeH4WUIgNFaVMpZSJSBbfJnwYpsmdlw9BwJ2bAwgLi4uAcP7IKTSEptoGCyyCDgpE+D3l50dgjMcfXnGt+yJlnkIC4X+AsLWolKlImEv3btDR0kaOK5v6cq/FgcWJQhBM02TPth14i8u5MthHT+cZ7r4fYnj0K07NQW1lFaZpZNAsiKkMhVKICPOxJfqeDlBdXIGu69z//oTYPqE+z8u8sYQvOM5lZzfHm9tAQNJMICgFblcuFVuK6TrYTn2pF39RiMb8OnpKurhQeBJvRRnPIyOISFpdTeyFRDREBE3L4k94msaqOkDxc8XP5Mo0geQM4eTcmivE8o6uULYxTEQET56bB8PPmAgFiEfjeJryeBP7iAK0qHCs5ECGEyVlJCsWYkusJhO07mzmdGsHyaHbVIwVMbLyGZe4OFfUTmxxOe1OlVbBjoSRJLIQZTTo4/D2Fjp3tXK05RCpLV98estsPLrO2OsGeHLd5OdvZnUlSENlNWUFxSmxACHb4cRZUGJ/BwFJy2iuuVpMq5l6RTSbHytbilkbiWg2B5LxJRBExKZIUlPWshISiQSGYaDrOv8BNCz+u1A+hJcAAAAASUVORK5CYII=
-// @description  在招聘网站职位列表页每个职位添加公司工商信息(天眼查、爱企查、企查查)查询功能，增加额外的职位首发/更新时间，职位详情。支持前程无忧、BOSS直聘、牛企直聘网站。
+// @description  在招聘网站职位列表页每个职位添加公司工商信息(天眼查、爱企查、企查查)查询功能，增加额外的职位首发/更新时间，职位详情。支持前程无忧、BOSS直聘、牛企直聘、应届生求职网网站。
 // @author       c1gstudio
 // @match        *://we.51job.com/*
 // @match        *://www.zhipin.com/*
 // @match        *://campus.niuqizp.com/*
+// @match        *://q.yingjiesheng.com/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @run-at       document-idle
@@ -149,7 +150,7 @@
             companyNameFromElement: function(el) { return el.textContent.trim(); }
         },
         'www.zhipin.com': {
-            companyNameSelector: 'div.job-card-footer > a.boss-info > .boss-name',
+            companyNameSelector: '.job-card-footer > .boss-info > .boss-name',
             jobListSelector: '.job-card-box',
             jobTitleSelector: '.job-name',
             hrInfoSelector: '.info-company .info-public, .job-author .name',
@@ -174,6 +175,24 @@
             detailOutLink: 'a.jshow_link_c',
             enableUrlChangeMonitoring: false,
             companyNameFromElement: function(el) { return el.textContent.trim(); }
+        },
+        'q.yingjiesheng.com': {
+            companyNameSelector: 'div.left-detail-company',
+            jobListSelector: '.search-list-item-wrapper',
+            jobTitleSelector: 'div.left-title-name',
+            hrInfoSelector: '',
+            apiPatterns: [
+                '/open/noauth/job/intern',
+                '/open/noauth/job-v2/recommend',
+                '/open/noauth/job/search'
+            ],
+            waitForElement: '.search-list',
+            detailContentSelector: 'div.detail-content',
+            detailMoreLayer: '.detail-title-left-center',
+            detailCompanyName: '.detail-content-compnav-center',
+            detailOutLink: 'a.jshow_link_c',
+            enableUrlChangeMonitoring: false,
+            companyNameFromElement: function(el) { return el.textContent.trim(); }
         }        
     };
 
@@ -183,26 +202,30 @@
         enableApiInterception: true, // 是否启用API拦截
         maxInitialRetries: 3,       // 最大初始重试次数
         retryInterval: 1000,        // 重试间隔(ms)
-        showTipButton: false         // 是否显示功能提示按钮
+        showTipButton: true         // 是否显示功能提示按钮
     };
-    
-    // ==================== 全局变量 ====================
-    const currentHost = window.location.hostname;
-    const config = siteConfigs[currentHost];
-    let apiData = [];
 
     const logger = {
         log: (...args) => DEBUG && console.log(`[${SCRIPT_NAME}]`, ...args),
         warn: (...args) => console.warn(`[${SCRIPT_NAME}]`, ...args),
         error: (...args) => console.error(`[${SCRIPT_NAME}]`, ...args)
-    };
+    };   
+    // ==================== 全局变量 ====================
+    const currentHost = window.location.hostname;
+    const urlObj = new URL(window.location.href);
+    const pathname = urlObj.pathname;
+    // 获取url目录部分
+    const pathDirectory = pathname.replace(/\/[^\/]*$/, '');
+
+    const config = siteConfigs[currentHost];
+    let apiData = [];
 
     if (!config) {
         logger.warn('未找到匹配的配置，当前主机名:', currentHost);
         return;
     }
 
-    logger.log('脚本启动，当前主机名:', currentHost);
+    logger.log('脚本启动，当前主机和URL目录部分:', currentHost,pathDirectory);
 
     if (initConfig.enableApiInterception && config.apiPatterns?.length) {
         interceptAPIRequests();
@@ -278,11 +301,6 @@
         logger.log('全局错误处理器已设置');
     }
   
-    
-        
-
-
-    
 
     function checkCompanyBlacklist(companyName) {
         if (!companyName) return [];
@@ -524,12 +542,12 @@
     }
 
 
-    
-
     function processJobData(url,data) {
         try {
             if (currentHost === 'we.51job.com') {
                 return process51JobData(url,data);
+            } else if (currentHost === 'q.yingjiesheng.com') {
+                return processYingJieShengData(url,data);
             } else if (currentHost === 'www.zhipin.com') {
                 try {
                     let urlObj = url.startsWith('http') ? new URL(url) : new URL(url, window.location.origin);
@@ -564,6 +582,21 @@
         return [];
     }
     
+    function processYingJieShengData(url,data) {
+        logger.log('YingJieSheng API数据:', url);
+        if (data && data.status === "1" && data.resultbody?.jobs?.items) {
+            logger.log('成功解析到游客可见的', data.resultbody.jobs.items.length, '条职位数据');
+            return data.resultbody.jobs.items;
+        }else if (data && data.status === "1" && data.resultbody?.joblist?.items) {
+            logger.log('成功解析到推荐', data.resultbody.joblist.items.length, '条职位数据');
+            return data.resultbody.joblist.items;            
+        } else if (data && data.status === "1" && data.resultbody?.searchData?.joblist?.items) {
+            logger.log('成功解析到', data.resultbody.searchData.joblist.items.length, '条职位数据');
+            return data.resultbody.searchData.joblist.items;
+        }
+        logger.warn(' YingJieSheng API数据格式不正确:', data);
+        return [];
+    }
 
     function processBossData(url,data) { 
         if (data && data.message === "Success" && data.zpData.jobList) {
@@ -919,6 +952,8 @@
     function processDetailPage(){
         if ( currentHost === 'campus.niuqizp.com'){
             processNiuqizpDetailPage();
+        } else if (currentHost === 'q.yingjiesheng.com'){
+            processYingjieshengDetailPage();
         }
     }
 
@@ -954,6 +989,8 @@
         hrefItems.forEach((hrefItem,index) => { 
             try {
                 var base64Encoded = hrefItem.getAttribute('ref');
+                var hreftext = hrefItem.textContent.trim();
+                logger.log(`链接元素 ${hreftext}`);                
                 // 进行Base64解码
                 var decodedUrl = atob(base64Encoded);
                 
@@ -962,7 +999,9 @@
                 hrefItem.parentNode.replaceChild(newHrefItem, hrefItem);
                 
                 // 替换文本内容和href
-                newHrefItem.textContent = decodedUrl;
+                if (hreftext.includes('[点击查看]')){
+                    newHrefItem.textContent = decodedUrl;
+                }             
                 newHrefItem.style = 'border-left:4px solid #4CAF50;border-radius:6px;padding:4px;margin-left:4px;';
                 newHrefItem.href = decodedUrl;
                 
@@ -977,9 +1016,88 @@
             }         
         })
     }
-    
+
+    function processYingjieshengDetailPage(){
+
+        try {
+            const loginpop = document.querySelector('div.window-login');
+            const loginmask = document.querySelector('div.v-modal');
+            const bodydev = document.querySelector('body.pc_body');
+
+            if (loginpop){
+                bodydev.classList.remove('el-popup-parent--hidden');
+                loginmask.className='v-modal-leave';           
+                loginpop.style.display='none';
+                logger.log(`关闭登录弹窗元素 ${loginpop?.className}`);
+                logger.log(`关闭登录遮罩层 ${loginmask?.className}`);
+            }else{
+                logger.warn('未找到登录弹窗元素');
+            }
+        } catch (error) {
+            logger.error(`详情页没有登录弹窗: ${error}`);
+        }
+        try {
+            const detailContainer = document.querySelector(config.detailContentSelector);
+            if (!detailContainer) {
+                logger.warn('未找到详情页容器元素', config.detailContentSelector);
+                return;
+            }  
+            try {
+                const jobtext = detailContainer.querySelector('div.text');
+                jobtext.style.height = 'auto';
+                jobtext.style.overflowY='auto';
+                logger.log(`显示详情页隐藏内容 ${jobtext?.className}`);
+            } catch (error) {
+                logger.error(`详情页没有隐藏内容: ${error}`);
+            }
+     
+            try{
+                const jobmask = detailContainer.querySelector('div.mask');
+                jobmask.style.display='none';
+                logger.log(`关闭详情页遮罩层 ${jobmask?.className}`);   
+            } catch (error) {
+                logger.error(`详情页没有详情页遮罩层元素: ${error}`);
+            }
+
+            let jobmetaContainer=document.querySelector('div.detail-title-left-center');
+            let companyNameStr = document.querySelector('div.detail-content-compnav-center').textContent.trim();
+            logger.log(`公司名称: ${companyNameStr}`);
+
+            let jobData={
+                    fullCompanyName: companyNameStr,
+                    jobTitle: null,
+                    degreeString: null,
+                    workYearString: null,
+                    confirmDateString: null,
+                    updateDateTime: null,
+                    jobHref: null,
+                    jobDescribe: null    
+            }   
+            const infoLayer = createJobInfoLayer(jobData);
+            insertInfoLayer(jobmetaContainer, infoLayer);
+        } catch (error) {
+            logger.error(`详情页没有详情页容器元素: ${error}`);
+        }            
+    }    
+
+    function CompanyListPreprocess(){
+        try{
+            const qiuzhaopop = document.querySelector('div.operate-popup');
+            if (qiuzhaopop){
+                const bodydev = document.querySelector('body.pc_body'); 
+                qiuzhaopop.style.display='none';
+                logger.log(`关闭列表推广弹窗元素 ${qiuzhaopop?.className}`);
+                logger.log(`关闭列表推广遮罩层 ${bodydev?.className}`);                
+            }else{
+                logger.warn('未找到列表推广弹窗元素');
+            }
+        } catch (error) {
+            logger.error(`未找到列表推广弹窗元素: ${error}`);
+        }
+    }
 
     function processCompanyList() {
+        CompanyListPreprocess();
         const jobItems = document.querySelectorAll(config.jobListSelector);
         logger.log('DOM找到', jobItems.length, '个职位项目');
  
@@ -1026,6 +1144,19 @@
             };
     }
 
+    function processYingJieShengListData(data){
+            return {
+                fullCompanyName: data['coname'],
+                jobTitle: data['jobname'],
+                degreeString: data['degree'],
+                workYearString: data['workyear'],
+                confirmDateString: data['issuedate'],
+                updateDateTime: data['lastupdate'],
+                jobHref: data['jumpUrlHttp'],
+                jobDescribe: data['jobtag'],
+            };
+    }
+
     function processBossListData(data){
             return {
                 fullCompanyName: data['brandName'],
@@ -1045,6 +1176,8 @@
         if (apiData && apiData[index]) {
             if (currentHost === 'we.51job.com') {
                 return process51JobListData(apiData[index]);
+            } else if (currentHost === 'q.yingjiesheng.com') {
+                return processYingJieShengListData(apiData[index]);
             } else if (currentHost === 'www.zhipin.com') {
                 return processBossListData(apiData[index]);
             }              
@@ -1205,7 +1338,7 @@
         try {
             logger.log('开始处理页面...');
             
-            if (currentHost === 'campus.niuqizp.com'){
+            if (currentHost === 'campus.niuqizp.com' || (currentHost === 'q.yingjiesheng.com' && pathDirectory === '/jobdetail')){
                 processDetailPage();
             }else{
                 processCompanyList();
