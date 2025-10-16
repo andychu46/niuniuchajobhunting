@@ -1,7 +1,7 @@
 # 🏷️ 牛牛查求职助手 ![牛牛查favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/favicon-32x32.png?raw=true)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.3-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Tampermonkey-orange.svg" alt="Platform">
   <img src="https://img.shields.io/badge/supported-多招聘平台-brightgreen.svg" alt="Support">
@@ -16,7 +16,22 @@
 
 ## 📝 项目简介
 
-牛牛查求职助手是一款专为求职者设计的浏览器油猴脚本，旨在为招聘网站提供强大的信息增强功能。通过智能识别和数据补充，帮助求职者更好地了解公司信息，识别潜在风险，提高求职成功率。
+牛牛查求职助手是一款专为求职者设计的浏览器扩展工具，提供Tampermonkey脚本和Chrome扩展两个版本。旨在为招聘网站提供强大的信息增强功能，通过智能识别和数据补充，帮助求职者更好地了解公司信息，识别潜在风险，提高求职成功率。
+
+## 🚀 版本选择
+
+### 📱 Tampermonkey版本（推荐）
+- **适用场景**: 所有支持Tampermonkey的浏览器
+- **安装简单**: 一键安装，即装即用
+- **跨平台**: 支持桌面和移动端
+- **文件位置**: `tampermonkey/牛牛查求职助手-招聘网站信息增强工具.user.js`
+
+### 🔧 Chrome扩展版本
+- **适用场景**: Chrome浏览器及Chromium内核浏览器
+- **功能完整**: 包含API拦截等高级功能
+- **开发者友好**: 支持调试模式和详细日志
+- **文件位置**: `chrome-extension/` 目录
+- **安装指南**: 查看 [chrome-extension/INSTALL.md](chrome-extension/INSTALL.md)
 
 ## ✨ 核心功能
 
@@ -58,6 +73,7 @@
 | 前程无忧 ([51job.com](https://www.51job.com)) | ✅ 完全支持 | 🌟🌟🌟🌟🌟 |
 | BOSS直聘 ([zhipin.com](https://www.zhipin.com)) | ✅ 完全支持 | 🌟🌟🌟🌟🌟 |
 | 牛企直聘 ([niuqizp.com](https://www.niuqizp.com)) | ✅ 完全支持 | 🌟🌟🌟🌟⭐ |
+| 应届生求职网 ([yingjiesheng.com](https://www.yingjiesheng.com)) | ✅ 完全支持 | 🌟🌟🌟🌟⭐ |
 
 ## 🚀 快速开始
 
@@ -174,7 +190,8 @@ niuniuchajobhunting/
 const siteConfigs = {
   'we.51job.com': { /* 51job配置 */ },
   'www.zhipin.com': { /* BOSS直聘配置 */ },
-  'campus.niuqizp.com': { /* 牛企直聘配置 */ }
+  'campus.niuqizp.com': { /* 牛企直聘配置 */ },
+  'q.yingjiesheng.com': { /* 应届生求职网配置 */ }
 };
 
 // 公司标签数据库
@@ -246,6 +263,11 @@ boss职位列表截图
 
 牛企直聘职位详情截图
 ![牛企直聘职位详情](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/niuqi1.png?raw=true)
+
+应届生求职网职位列表截图
+![应届生求职网职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/yingjiesheng1.png?raw=true)
+
+
 
 ## 🤝 贡献指南
 
