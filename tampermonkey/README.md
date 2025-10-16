@@ -1,7 +1,7 @@
 # 🏷️ 牛牛查求职助手 ![牛牛查favicon](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/icons/favicon-32x32.png?raw=true)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.3-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/platform-Tampermonkey-orange.svg" alt="Platform">
   <img src="https://img.shields.io/badge/supported-多招聘平台-brightgreen.svg" alt="Support">
@@ -58,6 +58,7 @@
 | 前程无忧 ([51job.com](https://www.51job.com)) | ✅ 完全支持 | 🌟🌟🌟🌟🌟 |
 | BOSS直聘 ([zhipin.com](https://www.zhipin.com)) | ✅ 完全支持 | 🌟🌟🌟🌟🌟 |
 | 牛企直聘 ([niuqizp.com](https://www.niuqizp.com)) | ✅ 完全支持 | 🌟🌟🌟🌟⭐ |
+| 应届生求职网 ([yingjiesheng.com](https://www.yingjiesheng.com)) | ✅ 完全支持 | 🌟🌟🌟🌟⭐ |
 
 ## 🚀 快速开始
 
@@ -174,7 +175,8 @@ niuniuchajobhunting/
 const siteConfigs = {
   'we.51job.com': { /* 51job配置 */ },
   'www.zhipin.com': { /* BOSS直聘配置 */ },
-  'campus.niuqizp.com': { /* 牛企直聘配置 */ }
+  'campus.niuqizp.com': { /* 牛企直聘配置 */ },
+  'q.yingjiesheng.com': { /* 应届生求职网配置 */ }
 };
 
 // 公司标签数据库
@@ -247,6 +249,8 @@ boss职位列表截图
 牛企直聘职位详情截图
 ![牛企直聘职位详情](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/niuqi1.png?raw=true)
 
+应届生求职网职位列表截图
+![应届生求职网职位列表](https://github.com/andychu46/niuniuchajobhunting/blob/main/tampermonkey/screenshot/yingjiesheng1.png?raw=true)
 ## 🤝 贡献指南
 
 欢迎为项目做出贡献！您可以通过以下方式参与：
