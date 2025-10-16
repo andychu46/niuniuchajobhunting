@@ -149,7 +149,7 @@
             companyNameFromElement: function(el) { return el.textContent.trim(); }
         },
         'www.zhipin.com': {
-            companyNameSelector: '.job-card-footer > .boss-info > .boss-name',
+            companyNameSelector: 'div.job-card-footer > a.boss-info > .boss-name',
             jobListSelector: '.job-card-box',
             jobTitleSelector: '.job-name',
             hrInfoSelector: '.info-company .info-public, .job-author .name',
