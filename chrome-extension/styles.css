@@ -1,0 +1,396 @@
+/* 牛牛查求职助手 - Chrome扩展样式 */
+
+.niuniu_company-query-layer {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 12px;
+    position: relative;
+    z-index: 99;
+}
+
+.niuniu_company-query-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    min-width: 60px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.niuniu_company-query-btn:hover {
+    background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+.niuniu_company-query-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.niuniu_query-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 120px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    margin-top: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.niuniu_query-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.niuniu_query-popup a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.niuniu_query-popup a:last-child {
+    border-bottom: none;
+}
+
+.niuniu_query-popup a:hover {
+    background-color: #f8f9fa;
+    color: #4CAF50;
+}
+
+.niuniu_company-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 8px;
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    animation: companyTagFadeIn 0.3s ease-in-out;
+}
+
+.niuniu_company-tag.scam {
+    background: linear-gradient(135deg, #FF5722 0%, #D32F2F 100%);
+    border: 1px solid #D32F2F;
+    box-shadow: 0 2px 4px rgba(255, 87, 34, 0.3);
+}
+
+.niuniu_company-tag.outsourcing {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+    border: 1px solid #F57C00;
+    box-shadow: 0 2px 4px rgba(255, 152, 0, 0.3);
+}
+
+.niuniu_company-tag.training {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    border: 1px solid #1976D2;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+}
+
+.niuniu_company-tag.custom {
+    background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+    border: 1px solid #7B1FA2;
+    box-shadow: 0 2px 4px rgba(156, 39, 176, 0.3);
+}
+
+@keyframes companyTagFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.niuniu_job-info-layer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    margin: 8px 0;
+    font-size: 13px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.niuniu_job-info-row {
+    display: flex;
+    align-items: left;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.niuniu_company-tags-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 24px;
+    padding: 4px 0;
+    border-top: 1px solid rgba(76, 175, 80, 0.1);
+    margin-top: 4px;
+}
+
+.niuniu_company-tags-container {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.niuniu_company-tag-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.niuniu_date-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.niuniu_info-tag {
+    display: inline-flex;
+    align-items: center;
+    color: #6c757d;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.niuniu_link {
+    display: inline-flex;
+    align-items: center;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.niuniu_link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.niuniu_feature-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    backdrop-filter: blur(3px);
+}
+
+.niuniu_feature-modal.show {
+    display: flex;
+}
+
+.niuniu_feature-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.niuniu_feature-modal.show .niuniu_feature-content {
+    transform: scale(1);
+}
+
+.niuniu_feature-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.niuniu_feature-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.niuniu_feature-subtitle {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+}
+
+.niuniu_feature-section {
+    margin-bottom: 25px;
+}
+
+.niuniu_feature-section h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.niuniu_feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.niuniu_feature-list li {
+    padding: 8px 0;
+    color: #495057;
+    font-size: 14px;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.niuniu_feature-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.niuniu_feature-close:hover {
+    background: #f8f9fa;
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+.niuniu_feature-highlight {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .niuniu_job-info-layer {
+        gap: 6px;
+        padding: 10px 12px;
+    }
+    
+    .niuniu_job-info-row {
+        gap: 8px;
+    }
+    
+    .niuniu_company-tags-row {
+        gap: 6px;
+        padding: 3px 0;
+    }
+    
+    .niuniu_company-tags-container {
+        gap: 6px;
+    }
+    
+    .niuniu_company-tag-label {
+        font-size: 11px;
+        margin-right: 6px;
+    }
+    
+    .niuniu_company-query-btn {
+        font-size: 11px;
+        padding: 4px 8px;
+        min-width: 50px;
+    }
+    
+    .niuniu_company-tag {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+    
+    .niuniu_info-tag {
+        font-size: 11px;
+    }
+    
+    .niuniu_date-tag {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+    
+    .niuniu_feature-content {
+        margin: 20px;
+        padding: 20px;
+        max-width: calc(100% - 40px);
+    }
+    
+    .niuniu_feature-title {
+        font-size: 20px;
+    }
+    
+    .niuniu_feature-section h3 {
+        font-size: 16px;
+    }
+}
