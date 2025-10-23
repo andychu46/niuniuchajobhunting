@@ -28,7 +28,7 @@
 
 ## 🚀 快速开始
 
-详细安装步骤请查看 [INSTALL.md](INSTALL.md)
+详细安装步骤请查看 [INSTALL.md](https://github.com/andychu46/niuniuchajobhunting/blob/main/chrome-extension/INSTALL.md)
 
 ## 📁 项目结构
 
