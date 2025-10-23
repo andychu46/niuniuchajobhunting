@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>牛牛查求职助手 - 设置</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .settings-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .settings-section h2 {
+            margin: 0 0 20px 0;
+            font-size: 18px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+        
+        .setting-label {
+            flex: 1;
+        }
+        
+        .setting-label h3 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+        
+        .setting-label p {
+            margin: 0;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .setting-control {
+            margin-left: 20px;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .company-lists {
+            margin-top: 20px;
+        }
+        
+        .company-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .company-list h4 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .company-list textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 12px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        
+        .save-button {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .save-button:hover {
+            background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+            transform: translateY(-1px);
+        }
+        
+        .reset-button {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .reset-button:hover {
+            background: #5a6268;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .info-box h4 {
+            margin: 0 0 10px 0;
+            color: #1976D2;
+        }
+        
+        .info-box p {
+            margin: 0;
+            font-size: 13px;
+            color: #1565C0;
+            line-height: 1.5;
+        }
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 11px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏷️ 牛牛查求职助手</h1>
+            <p>扩展设置 - 个性化配置您的求职助手</p>
+        </div>
+        
+        <div class="settings-section">
+            <h2>⚙️ 基本设置</h2>
+            
+            <div class="setting-item">
+                <div class="setting-label">
+                    <h3>启用公司标签系统</h3>
+                    <p>自动识别并标记诈骗、外包、培训等类型的公司</p>
+                </div>
+                <div class="setting-control">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="enableCompanyTags" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+
+            <div class="setting-item">
+                <div class="setting-label">
+                    <h3>启用API拦截</h3>
+                    <p>拦截招聘网站API获取更详细的职位信息</p>
+                </div>
+                <div class="setting-control">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="enableApiInterception" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="setting-item">
+                <div class="setting-label">
+                    <h3>调试模式</h3>
+                    <p>在控制台显示详细的调试信息</p>
+                </div>
+                <div class="setting-control">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="debugMode">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h2>🏷️ 公司名单管理</h2>
+            <p style="color: #6c757d; margin-bottom: 20px;">
+                您可以自定义各类型公司的名单，每行一个公司名称。支持模糊匹配。
+            </p>
+            
+            <div class="company-lists">
+                <div class="company-list">
+                    <h4>⚠️ 诈骗公司名单</h4>
+                    <textarea id="scamCompanies" placeholder="请输入诈骗公司名称，每行一个..."></textarea>
+                </div>
+                
+                <div class="company-list">
+                    <h4>🔄 外包公司名单</h4>
+                    <textarea id="outsourcingCompanies" placeholder="请输入外包公司名称，每行一个..."></textarea>
+                </div>
+                
+                <div class="company-list">
+                    <h4>📚 培训公司名单</h4>
+                    <textarea id="trainingCompanies" placeholder="请输入培训公司名称，每行一个..."></textarea>
+                </div>
+                
+                <div class="company-list">
+                    <h4>🚨 自定义警告名单</h4>
+                    <textarea id="customCompanies" placeholder="请输入需要警告的公司名称，每行一个..."></textarea>
+                </div>
+            </div>
+            
+            <button class="save-button" id="saveSettings">💾 保存设置</button>
+            <button class="reset-button" id="resetSettings">🔄 恢复默认</button>
+        </div>
+        
+        <div class="info-box">
+            <h4>💡 使用说明</h4>
+            <p>
+                • 公司名单支持模糊匹配，例如输入"软通"可以匹配"软通动力"<br>
+                • 修改设置后需要刷新页面才能生效<br>
+                • 建议定期更新公司名单以获得更好的识别效果<br>
+                • 如遇到问题，可以尝试恢复默认设置
+            </p>
+        </div>
+      <div class="footer">
+        <p>© 2025 <a href="https://blog.c1gstudio.com/" target="_blank">c1gstudio</a> | 让求职更安全</p>
+     </div>          
+    </div>
+
+    <script src="config.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>
