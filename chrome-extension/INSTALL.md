@@ -14,6 +14,8 @@
 
 1. **下载扩展文件**
    - 下载并解压扩展文件到本地文件夹,可以将crx文件后缀改成zip
+   [https://github.com/andychu46/niuniuchajobhunting/blob/main/chrome-extension1.2.crx](https://github.com/andychu46/niuniuchajobhunting/blob/main/chrome-extension1.2.crx)
+   
    - 确保文件夹包含 `manifest.json` 文件
 
 2. **打开Chrome扩展管理页面**

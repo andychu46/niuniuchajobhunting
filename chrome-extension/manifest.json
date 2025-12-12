@@ -5,6 +5,7 @@
   "description": "在招聘网站职位列表页每个职位添加公司工商信息查询功能，增加额外的职位首发/更新时间，职位详情。支持前程无忧、BOSS直聘、牛企直聘网站。",
   "author": "c1gstudio",
   "homepage_url": "https://blog.c1gstudio.com/",
+  "privacy_policy": "privacy-policy.html",
   "permissions": [
     "activeTab",
     "storage",
