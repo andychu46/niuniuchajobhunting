@@ -8,8 +8,7 @@
   "privacy_policy": "privacy-policy.html",
   "permissions": [
     "activeTab",
-    "storage",
-    "webRequest"
+    "storage"
   ],
   "host_permissions": [
     "*://we.51job.com/*",
