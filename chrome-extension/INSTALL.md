@@ -14,7 +14,7 @@
 或者直接访问项目地址
 [牛牛查求职助手](https://chromewebstore.google.com/detail/ccjjdpmjhnllbiddahchbcmkngpgeejm?utm_source=item-share-cb)
 
-### 方法二：开发者模式安装（推荐）
+### 方法二：开发者模式安装
 
 1. **下载扩展文件**
    - 下载并解压扩展文件到本地文件夹,可以将crx文件后缀改成zip
