@@ -15,9 +15,9 @@
 
 | 网站 | 域名 | 功能支持 |
 |------|------|----------|
-| 前程无忧 | we.51job.com | ✅ 公司标签 + API拦截 |
-| BOSS直聘 | www.zhipin.com | ✅ 公司标签 + API拦截 |
-| 牛企直聘网校招 | campus.niuqizp.com | ✅ 公司标签 + 链接解码 |
+| 前程无忧 | [we.51job.com](https://we.51job.com/) | ✅ 公司标签 + API拦截 |
+| BOSS直聘 | [www.zhipin.com](https://www.zhipin.com/) | ✅ 公司标签 + API拦截 |
+| 牛企直聘网校招 | [campus.niuqizp.com](https://campus.niuqizp.com/) | ✅ 公司标签 + 链接解码 |
 
 ## 📋 公司类型标识
 
